@@ -8,7 +8,5 @@ export default function About(){
         <div style={{color: 'teal'}}>
               <Link to='/'>Home</Link>
             <Header headerText = 'About Karina'></Header>
-            <p>Such wow. Very pretty.</p>
-        </div>
-    )
+            <p>Such wow. Very pretty.</p></div>)
 }
