@@ -7,7 +7,7 @@ import Container from "../components/container"
 console.log(styles)
 
 const User = props => (
-  <div className={styles.User}>
+  <div className={styles.user}>
     <img src={props.avatar} className={styles.avatar} alt="" />
     <div className={styles.description}>
       <h2 className={styles.username}>{props.username}</h2>
