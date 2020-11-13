@@ -1,8 +1,7 @@
-import React from "react"
 import { Link } from "gatsby"
+import React from "react"
+import Layout from "../components/layout"
 import styles from "./about-css-modules.module.css"
-import Header from "../components/header"
-import Container from "../components/container"
 
 console.log(styles)
 
@@ -18,9 +17,9 @@ const User = props => (
 
 export default function AboutCssModules() {
   return (
-    <Container>
+    <Layout>
       <Link to="/">Home</Link>
-      <Header headerText="About CSS Modules"></Header>
+      <h1>About CSS Modules</h1>
       <p>They're something</p>
       <User
         username="Fernando Antonio"
@@ -34,6 +33,6 @@ export default function AboutCssModules() {
 
         Vel pretium lectus quam id leo in vitae. Id eu nisl nunc mi. Nulla facilisi etiam dignissim diam quis. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Ullamcorper sit amet risus nullam eget. Suspendisse sed nisi lacus sed. Fames ac turpis egestas maecenas pharetra convallis posuere. Dui vivamus arcu felis bibendum ut tristique et egestas. Eget nulla facilisi etiam dignissim."
       />
-    </Container>
+    </Layout>
   )
 }
