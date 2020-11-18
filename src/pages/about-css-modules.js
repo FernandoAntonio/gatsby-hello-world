@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import styles from "./about-css-modules.module.css"
@@ -18,7 +17,6 @@ const User = props => (
 export default function AboutCssModules() {
   return (
     <Layout>
-      <Link to="/">Home</Link>
       <h1>About CSS Modules</h1>
       <p>They're something</p>
       <User
