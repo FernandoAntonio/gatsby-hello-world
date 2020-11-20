@@ -1,10 +1,11 @@
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 
-export default function Contact() {
+export default function Contact({ data }) {
   return (
     <Layout>
-      <h1>Contact Karina</h1>
+      <h1>{data.site.siteMetadata.contactTitle}</h1>
       <p>You can call +1 123123123.</p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -40,3 +41,13 @@ export default function Contact() {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        contactTitle
+      }
+    }
+  }
+`

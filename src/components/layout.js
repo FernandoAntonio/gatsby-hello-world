@@ -1,8 +1,8 @@
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 
 const ListLink = props => (
-  <li style={{ display: "inline-block", marginRight: "1rem" }}>
+  <li style={{ display: "inline-flex", marginRight: "1rem" }}>
     <Link to={props.to} style={{ textShadow: "none" }}>
       {props.children}
     </Link>
@@ -10,18 +10,39 @@ const ListLink = props => (
 )
 
 export default function Layout({ children }) {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            indexLink
+            contactLink
+            pandasLink
+            aboutLink
+            aboutCssModulesLink
+          }
+        }
+      }
+    `
+  )
+
   return (
     <div class="bg_image">
-      <div style={{ margin: " 0 3rem ", maxWidth: 800, padding: "0 3rem" }}>
+      <div style={{ margin: "0 3rem ", padding: " 1rem" }}>
         <header style={{ marginBottom: "1.5rem" }}>
-          <Link to="/" style={{ textShadow: "none", backgroundImage: "none" }}>
-            <h3 style={{ display: "inline" }}>Karina's site</h3>
-          </Link>
-          <ul style={{ listStyle: "none", float: "right" }}>
-            <ListLink to="/">Home</ListLink>
-            <ListLink to="/about/">About</ListLink>
-            <ListLink to="/about-css-modules/">CSS Module</ListLink>
-            <ListLink to="/contact/">Contact</ListLink>
+          <ul style={{ display: "inline" }}>
+            <ListLink to="/">{data.site.siteMetadata.indexLink}</ListLink>
+
+            <ListLink to="/about-css-modules/">
+              {data.site.siteMetadata.aboutCssModulesLink}
+            </ListLink>
+            <ListLink to="/pandas/">
+              {data.site.siteMetadata.pandasLink}
+            </ListLink>
+            <ListLink to="/contact/">
+              {data.site.siteMetadata.contactLink}
+            </ListLink>
+            <ListLink to="/about/">{data.site.siteMetadata.aboutLink}</ListLink>
           </ul>
         </header>
         {children}
